@@ -2,11 +2,6 @@
 -- NOTE: Features added in this list will be forced to be used on the client
 -- These features can be found in "modules/gamelib/const.lua"
 OTCFeatures = {
-	9, -- GameSkillsBase
-	12, -- GamePlayerMounts
-	29, -- GameDoubleSkills
-	53, -- GameBaseSkillU16
-	76 -- GameAdditionalSkills
 }
 
 -- Protocol things

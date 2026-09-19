@@ -388,7 +388,7 @@ bool Items::loadFromOtb(const std::string& file)
 	} else if (majorVersion != 3) {
 		std::cout << "Old version detected, a newer version of items.otb is required." << std::endl;
 		return false;
-	} else if (minorVersion < CLIENT_VERSION_860_OLD) {
+	} else if (minorVersion < CLIENT_VERSION_760) {
 		std::cout << "A newer version of items.otb is required." << std::endl;
 		return false;
 	}

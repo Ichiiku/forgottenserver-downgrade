@@ -84,11 +84,12 @@ void NetworkMessage::addItemId(uint16_t itemId, const bool isOTCv8)
 {
 	const ItemType& it = Item::items[itemId];
 	uint16_t clientId = it.clientId;
-	if (!isOTCv8 && itemId > 12660) {
-		clientId = it.stackable ? 3031 : 105;
+	if (clientId == 0 || clientId > CLIENT_ITEM_MAX_ID) {
+		clientId = it.stackable ? 2148 : 101;
 	}
 
 	add<uint16_t>(clientId);
+	(void)isOTCv8;
 }
 
 void NetworkMessage::addItem(uint16_t id, uint8_t count, const bool isOTCv8)
@@ -99,7 +100,7 @@ void NetworkMessage::addItem(uint16_t id, uint8_t count, const bool isOTCv8)
 	if (it.stackable) {
 		addByte(count);
 	} else if (it.isSplash() || it.isFluidContainer()) {
-		addByte(fluidMap[count & 7]);
+		addByte(count);
 	}
 }
 
@@ -111,6 +112,6 @@ void NetworkMessage::addItem(const Item* item, const bool isOTCv8)
 	if (it.stackable) {
 		addByte(static_cast<uint8_t>(std::min<uint16_t>(0xFF, item->getItemCount())));
 	} else if (it.isSplash() || it.isFluidContainer()) {
-		addByte(fluidMap[item->getFluidType() & 7]);
+		addByte(item->getSubType());
 	}
 }

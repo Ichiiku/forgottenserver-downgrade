@@ -86,6 +86,7 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 
 	uint16_t version = msg.get<uint16_t>();
 	msg.skipBytes(12);
+	disableChecksum();
 	/*
 	 * Skipped bytes:
 	 * 4 bytes: protocolVersion
@@ -142,13 +143,14 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 		return;
 	}
 
-	auto accountName = msg.getString();
+	uint32_t accountNumber = msg.get<uint32_t>();
 	auto password = msg.getString();
+	std::string accountName = accountNumber != 0 ? std::to_string(accountNumber) : std::string{};
 
 	const bool accountNameEmpty = accountName.empty();
 	const bool passwordEmpty = password.empty();
 
-	if (getBoolean(ConfigManager::ACCOUNT_MANAGER) && accountNameEmpty && passwordEmpty) {
+	if (getBoolean(ConfigManager::ACCOUNT_MANAGER) && accountNumber == 0 && passwordEmpty) {
 		g_dispatcher.addTask([=, thisPtr = std::static_pointer_cast<ProtocolLogin>(shared_from_this())]() {
 			thisPtr->getCharacterList(ACCOUNT_MANAGER_ACCOUNT_NAME, ACCOUNT_MANAGER_ACCOUNT_PASSWORD);
 		});
@@ -156,7 +158,7 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 	}
 
 	if (accountNameEmpty) {
-		disconnectClient("Invalid account name.");
+		disconnectClient("Invalid account number.");
 		return;
 	}
 

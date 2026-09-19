@@ -326,6 +326,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 
 	OperatingSystem_t operatingSystem = static_cast<OperatingSystem_t>(msg.get<uint16_t>());
 	version = msg.get<uint16_t>();
+	disableChecksum();
 
 	if (!Protocol::RSA_decrypt(msg)) {
 		disconnect();
@@ -342,32 +343,31 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 
 	msg.skipBytes(1); // gamemaster flag
 
-	auto accountName = msg.getString();
+	// 7.72 sends account number, not account name.
+	uint32_t accountNumber = msg.get<uint32_t>();
 	auto characterName = msg.getString();
 	auto password = msg.getString();
+	std::string accountName = accountNumber != 0 ? std::to_string(accountNumber) : std::string{};
 
 	bool accountManager = getBoolean(ConfigManager::ACCOUNT_MANAGER);
-	if (accountManager && accountName.empty() && password.empty()) {
+	if (accountManager && accountNumber == 0 && password.empty()) {
 		accountName = ACCOUNT_MANAGER_ACCOUNT_NAME;
 		password = ACCOUNT_MANAGER_ACCOUNT_PASSWORD;
 	}
 
 	if (accountName.empty()) {
-		disconnectClient("You must enter your account name.");
+		disconnectClient("You must enter your account number.");
 		return;
 	}
 
-	uint32_t timeStamp = msg.get<uint32_t>();
-	uint8_t randNumber = msg.getByte();
-	if (challengeTimestamp != timeStamp || challengeRandom != randNumber) {
-		disconnect();
-		return;
-	}
-
-	// OTCv8 detect
-	const auto otcv8StrLen = msg.get<uint16_t>();
-	if (otcv8StrLen == OTCV8_LENGTH && msg.getString(OTCV8_LENGTH) == OTCV8_NAME) {
-		isOTCv8 = msg.get<uint16_t>() != 0;
+	// OTCv8 detect (optional trailer after the 7.72 login fields)
+	if (msg.getRemainingBufferLength() >= 2) {
+		const auto otcv8StrLen = msg.get<uint16_t>();
+		if (otcv8StrLen == OTCV8_LENGTH && msg.getRemainingBufferLength() >= OTCV8_LENGTH) {
+			if (msg.getString(OTCV8_LENGTH) == OTCV8_NAME) {
+				isOTCv8 = msg.getRemainingBufferLength() >= 2 && msg.get<uint16_t>() != 0;
+			}
+		}
 	}
 
 	if (isOTCv8 || operatingSystem >= CLIENTOS_OTCLIENT_LINUX) {
@@ -425,30 +425,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 
 void ProtocolGame::onConnect()
 {
-	auto output = OutputMessagePool::getOutputMessage();
-	static std::random_device rd;
-	static std::ranlux24 generator(rd());
-	static std::uniform_int_distribution<uint16_t> randNumber(0x00, 0xFF);
-
-	// Skip checksum
-	output->skipBytes(sizeof(uint32_t));
-
-	// Packet length & type
-	output->add<uint16_t>(0x0006);
-	output->addByte(0x1F);
-
-	// Add timestamp & random number
-	challengeTimestamp = static_cast<uint32_t>(time(nullptr));
-	output->add<uint32_t>(challengeTimestamp);
-
-	challengeRandom = randNumber(generator);
-	output->addByte(challengeRandom);
-
-	// Go back and write checksum
-	output->skipBytes(-12);
-	output->add<uint32_t>(adlerChecksum(output->getOutputBuffer() + sizeof(uint32_t), 8));
-
-	send(output);
+	// 7.72 has no login challenge / checksum handshake.
 }
 
 void ProtocolGame::disconnectClient(std::string_view message) const
@@ -764,24 +741,15 @@ void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 	int32_t count = 0;
 	if (const auto ground = tile->getGround()) {
 		msg.addItem(ground, isOTCv8);
-		++count;
+		count = 1;
 	}
-
-	const bool isStacked = player->getPosition() == tile->getPosition();
 
 	const TileItemVector* items = tile->getItemList();
 	if (items) {
 		for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end; ++it) {
 			msg.addItem(*it, isOTCv8);
-
-			if (!isOTCv8) {
-				if (++count == 9 && isStacked) {
-					break;
-				} else if (count == MAX_STACKPOS_THINGS) {
-					return;
-				}
-			} else if (++count == MAX_STACKPOS_THINGS) {
-				break;
+			if (++count == MAX_STACKPOS_THINGS) {
+				return;
 			}
 		}
 	}
@@ -789,20 +757,14 @@ void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 	const CreatureVector* creatures = tile->getCreatures();
 	if (creatures) {
 		for (auto it = creatures->rbegin(), end = creatures->rend(); it != end; ++it) {
-			if (!isOTCv8 && count == 9 && isStacked) {
-				auto [known, removedKnown] = isKnownCreature(player->getID());
-				AddCreature(msg, player, known, removedKnown);
-			} else {
-				const Creature* creature = (*it);
-				if (!player->canSeeCreature(creature)) {
-					continue;
-				}
-
-				auto [known, removedKnown] = isKnownCreature(creature->getID());
-				AddCreature(msg, creature, known, removedKnown);
+			const Creature* creature = (*it);
+			if (!player->canSeeCreature(creature)) {
+				continue;
 			}
 
-			if (++count == MAX_STACKPOS_THINGS && !isOTCv8) {
+			auto [known, removedKnown] = isKnownCreature(creature->getID());
+			AddCreature(msg, creature, known, removedKnown);
+			if (++count == MAX_STACKPOS_THINGS) {
 				return;
 			}
 		}
@@ -811,7 +773,6 @@ void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 	if (items && count < MAX_STACKPOS_THINGS) {
 		for (auto it = items->getBeginDownItem(), end = items->getEndDownItem(); it != end; ++it) {
 			msg.addItem(*it, isOTCv8);
-
 			if (++count == MAX_STACKPOS_THINGS) {
 				return;
 			}
@@ -1042,8 +1003,6 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 	newOutfit.lookBody = msg.getByte();
 	newOutfit.lookLegs = msg.getByte();
 	newOutfit.lookFeet = msg.getByte();
-	newOutfit.lookAddons = msg.getByte();
-	newOutfit.lookMount = isOTCv8 ? msg.get<uint16_t>() : 0;
 	g_dispatcher.addTask([=, playerID = player->getID()]() { g_game.playerChangeOutfit(playerID, newOutfit); });
 }
 
@@ -1552,7 +1511,7 @@ void ProtocolGame::sendIcons(uint16_t icons)
 {
 	NetworkMessage msg;
 	msg.addByte(0xA2);
-	msg.add<uint16_t>(icons);
+	msg.addByte(static_cast<uint8_t>(icons));
 	writeToOutputBuffer(msg);
 }
 
@@ -1950,7 +1909,6 @@ void ProtocolGame::sendAddTileItem(const Position& pos, uint32_t stackpos, const
 	NetworkMessage msg;
 	msg.addByte(0x6A);
 	msg.addPosition(pos);
-	msg.addByte(static_cast<uint8_t>(stackpos));
 	msg.addItem(item, isOTCv8);
 	writeToOutputBuffer(msg);
 }
@@ -2038,14 +1996,12 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 
 	if (creature != player) {
 		if (stackpos != -1 && stackpos < MAX_STACKPOS_THINGS) {
-			NetworkMessage msg;
-			msg.addByte(0x6A);
-			msg.addPosition(pos);
-			msg.addByte(static_cast<uint8_t>(stackpos));
-
-			auto [known, removedKnown] = isKnownCreature(creature->getID());
-			AddCreature(msg, creature, known, removedKnown);
-			writeToOutputBuffer(msg);
+			// 7.x 0x6A has no stackpos, so the client cannot place a creature on a
+			// stacked tile (stairs, rope holes). Resend the whole tile instead
+			// (OtLand #286995).
+			if (const Tile* tile = g_game.map.getTile(pos)) {
+				sendUpdateTile(tile, pos);
+			}
 		}
 
 		if (magicEffect != CONST_ME_NONE) {
@@ -2314,61 +2270,23 @@ void ProtocolGame::sendOutfitWindow()
 		currentOutfit = newOutfit;
 	}
 
-	Mount* currentMount = g_game.mounts.getMountByID(player->getCurrentMount());
-	if (currentMount) {
-		currentOutfit.lookMount = currentMount->clientId;
-	}
-
-	/*bool mounted;
-	if (player->wasMounted) {
-	    mounted = currentOutfit.lookMount != 0;
-	} else {
-	    mounted = player->isMounted();
-	}*/
-
 	AddOutfit(msg, currentOutfit);
 
-	std::vector<ProtocolOutfit> protocolOutfits;
-	if (player->isAccessPlayer()) {
-		protocolOutfits.emplace_back("Gamemaster", 75, 0);
-	}
-
-	size_t maxProtocolOutfits = static_cast<size_t>(getInteger(ConfigManager::MAX_PROTOCOL_OUTFITS));
-	if (isOTCv8) {
-		maxProtocolOutfits = std::numeric_limits<uint8_t>::max();
-	}
-
-	for (const Outfit* outfit : outfits) {
-		uint8_t addons;
-		if (!player->getOutfitAddons(*outfit, addons)) {
-			continue;
-		}
-
-		protocolOutfits.emplace_back(outfit->name, outfit->lookType, addons);
-		if (protocolOutfits.size() == maxProtocolOutfits) {
+	switch (player->getSex()) {
+		case PLAYERSEX_FEMALE: {
+			msg.add<uint16_t>(136);
+			msg.add<uint16_t>(player->isPremium() ? 142 : 139);
 			break;
 		}
-	}
-
-	msg.addByte(protocolOutfits.size());
-	for (const ProtocolOutfit& outfit : protocolOutfits) {
-		msg.add<uint16_t>(outfit.lookType);
-		msg.addString(outfit.name);
-		msg.addByte(outfit.addons);
-	}
-
-	if (isOTCv8) {
-		std::vector<const Mount*> mounts;
-		for (const Mount& mount : g_game.mounts.getMounts()) {
-			if (player->hasMount(&mount)) {
-				mounts.push_back(&mount);
-			}
+		case PLAYERSEX_MALE: {
+			msg.add<uint16_t>(128);
+			msg.add<uint16_t>(player->isPremium() ? 134 : 131);
+			break;
 		}
-
-		msg.addByte(mounts.size());
-		for (const Mount* mount : mounts) {
-			msg.add<uint16_t>(mount->clientId);
-			msg.addString(mount->name);
+		default: {
+			msg.add<uint16_t>(128);
+			msg.add<uint16_t>(134);
+			break;
 		}
 	}
 
@@ -2445,12 +2363,6 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 
 	msg.addByte(player->getSkullClient(creature));
 	msg.addByte(player->getPartyShield(otherPlayer));
-
-	if (!known) {
-		msg.addByte(player->getGuildEmblem(otherPlayer));
-	}
-
-	msg.addByte(player->canWalkthroughEx(creature) ? 0x00 : 0x01);
 }
 
 void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
@@ -2462,7 +2374,8 @@ void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
 	msg.add<uint16_t>(
 	    static_cast<uint16_t>(std::min<uint32_t>(player->getMaxHealth(), std::numeric_limits<uint16_t>::max())));
 
-	msg.add<uint32_t>(player->hasFlag(PlayerFlag_HasInfiniteCapacity) ? 1000000 : player->getFreeCapacity());
+	msg.add<uint16_t>(static_cast<uint16_t>(
+	    (player->hasFlag(PlayerFlag_HasInfiniteCapacity) ? 1000000 : player->getFreeCapacity()) / 100));
 
 	msg.add<uint32_t>(std::min<uint32_t>(player->getExperience(), std::numeric_limits<int32_t>::max()));
 
@@ -2475,60 +2388,26 @@ void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
 	    static_cast<uint16_t>(std::min<uint32_t>(player->getMaxMana(), std::numeric_limits<uint16_t>::max())));
 
 	msg.addByte(static_cast<uint8_t>(std::min<uint32_t>(player->getMagicLevel(), std::numeric_limits<uint8_t>::max())));
-	if (isOTCv8) {
-		msg.addByte(
-		    static_cast<uint8_t>(std::min<uint32_t>(player->getBaseMagicLevel(), std::numeric_limits<uint8_t>::max())));
-	}
 	msg.addByte(player->getMagicLevelPercent());
 
 	msg.addByte(player->getSoul());
-
-	msg.add<uint16_t>(player->getStaminaMinutes());
-
-	if (isOTCv8) {
-		msg.add<uint16_t>(player->getBaseSpeed() / 2);
-	}
-
-	/*msg.add<uint16_t>(player->getBaseSpeed() / 2);
-
-	Condition* condition = player->getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
-	msg.add<uint16_t>(condition ? condition->getTicks() / 1000 : 0x00);
-
-	msg.add<uint16_t>(player->getOfflineTrainingTime() / 60 / 1000);
-
-	msg.add<uint16_t>(0); // xp boost time (seconds)
-	msg.addByte(0); // enables exp boost in the store
-	*/
 }
 
 void ProtocolGame::AddPlayerSkills(NetworkMessage& msg)
 {
 	msg.addByte(0xA1);
 
-	if (!isOTCv8) {
-		for (uint8_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
-			msg.addByte(
-			    std::min<uint8_t>(static_cast<uint8_t>(player->getSkillLevel(i)), std::numeric_limits<uint8_t>::max()));
-			msg.addByte(player->getSkillPercent(i));
-		}
-	} else {
-		for (uint8_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
-			msg.add<uint16_t>(std::min<uint16_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
-			msg.add<uint16_t>(player->getBaseSkill(i));
-			msg.addByte(player->getSkillPercent(i));
-		}
-
-		for (uint8_t i = SPECIALSKILL_FIRST; i <= SPECIALSKILL_LAST; ++i) {
-			msg.add<uint16_t>(static_cast<uint16_t>(std::min<int32_t>(100, player->varSpecialSkills[i])));
-			msg.add<uint16_t>(0);
-		}
+	for (uint8_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
+		msg.addByte(
+		    std::min<uint8_t>(static_cast<uint8_t>(player->getSkillLevel(i)), std::numeric_limits<uint8_t>::max()));
+		msg.addByte(player->getSkillPercent(i));
 	}
 }
 
 void ProtocolGame::AddOutfit(NetworkMessage& msg, const Outfit_t& outfit)
 {
 	uint16_t lookType = outfit.lookType;
-	if (!isOTCv8 && lookType >= 367) {
+	if (lookType >= 296) {
 		lookType = 128;
 	}
 
@@ -2539,13 +2418,8 @@ void ProtocolGame::AddOutfit(NetworkMessage& msg, const Outfit_t& outfit)
 		msg.addByte(outfit.lookBody);
 		msg.addByte(outfit.lookLegs);
 		msg.addByte(outfit.lookFeet);
-		msg.addByte(outfit.lookAddons);
 	} else {
 		msg.addItemId(outfit.lookTypeEx, isOTCv8);
-	}
-
-	if (isOTCv8) {
-		msg.add<uint16_t>(outfit.lookMount);
 	}
 }
 
@@ -2706,6 +2580,9 @@ void ProtocolGame::parseExtendedOpcode(NetworkMessage& msg)
 void ProtocolGame::sendOTCv8Features()
 {
 	const auto& features = ConfigManager::getOTCFeatures();
+	if (features.empty()) {
+		return;
+	}
 
 	auto msg = getOutputBuffer(1024);
 	msg->addByte(0x43);

@@ -29,6 +29,7 @@ class Party;
 class SchedulerTask;
 class Bed;
 class Guild;
+class Tile;
 
 enum skillsid_t
 {
@@ -632,17 +633,9 @@ public:
 			}
 		} else if (canSeeInvisibility()) {
 			client->sendCreatureOutfit(creature, creature->getCurrentOutfit());
-		} else {
-			int32_t stackpos = creature->getTile()->getClientIndexOfCreature(this, creature);
-			if (stackpos == -1) {
-				return;
-			}
-
-			if (visible) {
-				client->sendAddCreature(creature, creature->getPosition(), stackpos);
-			} else {
-				client->sendRemoveTileThing(creature->getPosition(), stackpos);
-			}
+		} else if (const Tile* tile = creature->getTile()) {
+			// 7.x cannot add/remove an invisible creature by stackpos. Rebuild the tile.
+			client->sendUpdateTile(tile, creature->getPosition());
 		}
 	}
 	void sendCreatureLight(const Creature* creature)
