@@ -292,6 +292,19 @@ ReturnValue Combat::canDoCombat(Creature* attacker, Creature* target)
 		return g_events->eventCreatureOnTargetCombat(attacker, target);
 	}
 
+	if (attacker && target) {
+		if (attacker->getPlayer() && attacker->getPlayer()->getVocationId() == VOCATION_SUMMONER && target->getMaster() == attacker) {
+			return RETURNVALUE_YOUMAYNOTATTACKTHISCREATURE;
+		}
+		if (target->getPlayer() && target->getPlayer()->getVocationId() == VOCATION_SUMMONER && attacker->getMaster() == target) {
+			return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER;
+		}
+		if (attacker->getMaster() && target->getMaster() && attacker->getMaster() == target->getMaster() &&
+		    attacker->getMaster()->getPlayer() && attacker->getMaster()->getPlayer()->getVocationId() == VOCATION_SUMMONER) {
+			return RETURNVALUE_YOUMAYNOTATTACKTHISCREATURE;
+		}
+	}
+
 	if (const Player* targetPlayer = target->getPlayer()) {
 		if (targetPlayer->hasFlag(PlayerFlag_CannotBeAttacked)) {
 			return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER;

@@ -1377,7 +1377,11 @@ void ProtocolGame::sendCreatureShield(const Creature* creature)
 	NetworkMessage msg;
 	msg.addByte(0x91);
 	msg.add<uint32_t>(creature->getID());
-	msg.addByte(player->getPartyShield(creature->getPlayer()));
+	if (creature->isSummon() && creature->getMaster() == player) {
+		msg.addByte(SHIELD_BLUE);
+	} else {
+		msg.addByte(player->getPartyShield(creature->getPlayer()));
+	}
 	writeToOutputBuffer(msg);
 }
 
@@ -2362,7 +2366,13 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 	msg.add<uint16_t>(static_cast<uint16_t>(creature->getStepSpeed()));
 
 	msg.addByte(player->getSkullClient(creature));
-	msg.addByte(player->getPartyShield(otherPlayer));
+	if (creature->isSummon() && creature->getMaster() == player) {
+		msg.addByte(SHIELD_BLUE);
+	} else if (otherPlayer) {
+		msg.addByte(player->getPartyShield(otherPlayer));
+	} else {
+		msg.addByte(SHIELD_NONE);
+	}
 }
 
 void ProtocolGame::AddPlayerStats(NetworkMessage& msg)

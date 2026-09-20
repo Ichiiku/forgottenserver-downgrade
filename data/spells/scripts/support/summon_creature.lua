@@ -58,6 +58,10 @@ function onCastSpell(creature, variant)
 		return false
 	end
 
+	if isSummoner and not creature:getParty() then
+		Party(creature)
+	end
+
 	creature:addMana(-manaCost)
 	creature:addManaSpent(manaCost)
 	creature:addSummon(summon)

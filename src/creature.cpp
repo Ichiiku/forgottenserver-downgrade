@@ -817,6 +817,18 @@ void Creature::gainHealth(Creature* healer, int32_t healthGain)
 
 void Creature::drainHealth(Creature* attacker, int32_t damage)
 {
+	if (attacker) {
+		if (attacker->getPlayer() && attacker->getPlayer()->getVocationId() == VOCATION_SUMMONER && this->getMaster() == attacker) {
+			return;
+		}
+		if (this->getPlayer() && this->getPlayer()->getVocationId() == VOCATION_SUMMONER && attacker->getMaster() == this) {
+			return;
+		}
+		if (attacker->getMaster() && this->getMaster() && attacker->getMaster() == this->getMaster() &&
+		    attacker->getMaster()->getPlayer() && attacker->getMaster()->getPlayer()->getVocationId() == VOCATION_SUMMONER) {
+			return;
+		}
+	}
 	changeHealth(-damage, false);
 
 	if (attacker) {
@@ -837,6 +849,19 @@ BlockType_t Creature::blockHit(Creature* attacker, CombatType_t combatType, int3
 		if (attackerPlayer && attackerPlayer->getVocationId() == VOCATION_DARK_KNIGHT) {
 			checkDefense = false;
 			blockCount = 0;
+		}
+		if (attackerPlayer && attackerPlayer->getVocationId() == VOCATION_SUMMONER && this->getMaster() == attacker) {
+			damage = 0;
+			return BLOCK_IMMUNITY;
+		}
+		if (this->getPlayer() && this->getPlayer()->getVocationId() == VOCATION_SUMMONER && attacker->getMaster() == this) {
+			damage = 0;
+			return BLOCK_IMMUNITY;
+		}
+		if (attacker->getMaster() && this->getMaster() && attacker->getMaster() == this->getMaster() &&
+		    attacker->getMaster()->getPlayer() && attacker->getMaster()->getPlayer()->getVocationId() == VOCATION_SUMMONER) {
+			damage = 0;
+			return BLOCK_IMMUNITY;
 		}
 	}
 
