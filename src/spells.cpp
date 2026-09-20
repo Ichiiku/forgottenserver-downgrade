@@ -722,6 +722,13 @@ void Spell::postCastSpell(Player* player, bool finishedCast /*= true*/, bool pay
 
 void Spell::postCastSpell(Player* player, uint32_t manaCost, uint32_t soulCost)
 {
+	if (player && player->getVocationId() == VOCATION_WIZARD) {
+		uint32_t count = player->incrementWizardSpellCastCount();
+		if (count % 3 == 0 && uniform_random(1, 100) <= 33) {
+			manaCost = 0;
+		}
+	}
+
 	if (manaCost > 0) {
 		player->addManaSpent(manaCost);
 		player->changeMana(-static_cast<int32_t>(manaCost));
@@ -736,17 +743,23 @@ void Spell::postCastSpell(Player* player, uint32_t manaCost, uint32_t soulCost)
 
 uint32_t Spell::getManaCost(const Player* player) const
 {
+	uint32_t manaCost = 0;
 	if (mana != 0) {
-		return mana;
+		manaCost = mana;
 	}
-
-	if (manaPercent != 0) {
+	else if (manaPercent != 0) {
 		uint32_t maxMana = player->getMaxMana();
-		uint32_t manaCost = (maxMana * manaPercent) / 100;
-		return manaCost;
+		manaCost = (maxMana * manaPercent) / 100;
 	}
 
-	return 0;
+	if (player && player->getVocationId() == VOCATION_WIZARD && manaCost > 0) {
+		manaCost = (manaCost * 78) / 100;
+		if (manaCost == 0) {
+			manaCost = 1;
+		}
+	}
+
+	return manaCost;
 }
 
 std::string_view InstantSpell::getScriptEventName() const { return "onCastSpell"; }
@@ -1079,8 +1092,12 @@ bool RuneSpell::executeUse(Player* player, Item* item, const Position&, Thing* t
 	}
 
 	if (hasCharges && item && getBoolean(ConfigManager::REMOVE_RUNE_CHARGES)) {
-		int32_t newCount = std::max<int32_t>(0, item->getItemCount() - 1);
-		g_game.transformItem(item, item->getID(), newCount);
+		if (player && player->getVocationId() == VOCATION_WIZARD && uniform_random(1, 100) <= 33) {
+			// 33% chance to save rune charge
+		} else {
+			int32_t newCount = std::max<int32_t>(0, item->getItemCount() - 1);
+			g_game.transformItem(item, item->getID(), newCount);
+		}
 	}
 	return true;
 }

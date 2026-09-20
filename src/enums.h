@@ -402,6 +402,7 @@ enum PlayerSex_t : uint8_t
 inline constexpr uint16_t VOCATION_NONE = 0;
 inline constexpr uint16_t VOCATION_DARK_KNIGHT = 9;
 inline constexpr uint16_t VOCATION_SNIPER = 10;
+inline constexpr uint16_t VOCATION_WIZARD = 11;
 
 enum ReturnValue
 {

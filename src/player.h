@@ -274,6 +274,9 @@ public:
 	uint32_t sniperShotCount = 0;
 	uint32_t getSniperShotCount() const { return sniperShotCount; }
 	uint32_t incrementSniperShotCount() { return ++sniperShotCount; }
+	uint32_t wizardSpellCastCount = 0;
+	uint32_t getWizardSpellCastCount() const { return wizardSpellCastCount; }
+	uint32_t incrementWizardSpellCastCount() { return ++wizardSpellCastCount; }
 
 	PlayerSex_t getSex() const { return sex; }
 	void setSex(PlayerSex_t);

@@ -110,4 +110,14 @@
 		<skill id="5" multiplier="0.55" />
 		<skill id="6" multiplier="0.55" />
 	</vocation>
+	<vocation id="11" clientid="3" name="Wizard" description="a wizard" gaincap="20" gainhp="10" gainmana="60" gainhpticks="2" gainhpamount="10" gainmanaticks="1" gainmanaamount="10" manamultiplier="0.55" attackspeed="1000" basespeed="440" soulmax="400" gainsoulticks="7" fromvoc="5" noPongKickTime="50">
+		<formula meleeDamage="2.0" distDamage="2.0" defense="2.0" armor="2.0" />
+		<skill id="0" multiplier="1.5" />
+		<skill id="1" multiplier="2.0" />
+		<skill id="2" multiplier="2.0" />
+		<skill id="3" multiplier="2.0" />
+		<skill id="4" multiplier="2.0" />
+		<skill id="5" multiplier="1.5" />
+		<skill id="6" multiplier="1.1" />
+	</vocation>
 </vocations>

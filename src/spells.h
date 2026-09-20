@@ -141,7 +141,15 @@ public:
 	}
 	bool hasVocationSpellMap(uint16_t vocationId) const
 	{
-		return vocationSpellMap.empty() || vocationSpellMap.contains(vocationId);
+		if (vocationSpellMap.empty() || vocationSpellMap.contains(vocationId)) {
+			return true;
+		}
+		if (vocationId == VOCATION_WIZARD) {
+			if (vocationSpellMap.contains(1) || vocationSpellMap.contains(5)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	SpellGroup_t getGroup() const { return group; }
