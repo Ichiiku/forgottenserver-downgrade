@@ -26,7 +26,7 @@
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="attack" name="Energy Wave" words="exevo vis hur" level="38" mana="170" direction="1" cooldown="8000" needlearn="0" script="attack/energy_wave.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
@@ -34,7 +34,7 @@
 	<instant group="attack" name="Eternal Winter" words="exevo gran mas frigo" level="60" mana="1050" premium="1" selftarget="1" cooldown="40000" needlearn="0" script="attack/eternal_winter.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="attack" name="Ethereal Spear" words="exori con" level="23" mana="25" premium="1" range="7" needtarget="1" cooldown="2000" blockwalls="1" needlearn="0" script="attack/ethereal_spear.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
@@ -52,7 +52,7 @@
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="attack" name="Great Energy Beam" words="exevo gran vis lux" level="29" mana="110" direction="1" cooldown="6000" needlearn="0" script="attack/great_energy_beam.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
@@ -70,11 +70,11 @@
 		<vocation name="Master Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="attack" name="Ice Wave" words="exevo frigo hur" level="18" mana="25" direction="1" cooldown="4000" needlearn="0" script="attack/ice_wave.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="attack" name="Rage of the Skies" words="exevo gran mas vis" level="55" mana="600" selftarget="1" premium="1" cooldown="40000" needlearn="0" script="attack/rage_of_the_skies.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
@@ -84,11 +84,11 @@
 		<vocation name="Master Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="attack" name="Terra Wave" words="exevo tera hur" level="38" mana="210" direction="1" cooldown="4000" needlearn="0" script="attack/terra_wave.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="attack" name="Whirlwind Throw" words="exori hur" level="28" mana="40" premium="1" range="5" needtarget="1" blockwalls="1" needweapon="1" cooldown="6000" needlearn="0" script="attack/whirlwind_throw.lua">
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
@@ -96,7 +96,7 @@
 	<instant group="attack" name="Wrath of Nature" words="exevo gran mas tera" level="55" mana="700" premium="1" selftarget="1" cooldown="40000" needlearn="0" script="attack/wrath_of_nature.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 
 	
 	<instant group="healing" name="Cure Poison" words="exana pox" level="10" mana="30" aggressive="0" selftarget="1" cooldown="6000" needlearn="0" script="healing/cure_poison.lua">
@@ -108,7 +108,7 @@
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
 		<vocation name="Elite Knight" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="healing" name="Divine Healing" words="exura san" level="35" mana="160" premium="0" selftarget="1" aggressive="0" cooldown="1000" needlearn="0" script="healing/divine_healing.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
@@ -116,7 +116,7 @@
 	<instant group="healing" name="Heal Friend" words="exura sio" level="18" mana="140" premium="1" aggressive="0" blockwalls="1" needtarget="1" playernameparam="1" params="1" cooldown="1000" needlearn="0" script="healing/heal_friend.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="healing" name="Intense Healing" words="exura gran" level="20" mana="70" aggressive="0" selftarget="1" cooldown="1000" needlearn="0" script="healing/intense_healing.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -124,7 +124,7 @@
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="healing" name="Light Healing" words="exura" level="8" mana="20" aggressive="0" selftarget="1" cooldown="1000" needlearn="0" script="healing/light_healing.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -132,17 +132,17 @@
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="healing" name="Mass Healing" words="exura gran mas res" level="36" mana="150" premium="1" aggressive="0" cooldown="2000" needlearn="0" script="healing/mass_healing.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="healing" name="Ultimate Healing" words="exura vita" level="30" mana="160" aggressive="0" selftarget="1" cooldown="1000" needlearn="0" script="healing/ultimate_healing.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 
 	
 	<instant group="support" name="Blood Rage" words="utito tempo" level="60" mana="290" premium="1" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="support/blood_rage.lua">
@@ -165,7 +165,7 @@
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Find Person" words="exiva" level="8" mana="20" aggressive="0" playernameparam="1" params="1" cooldown="2000" needlearn="0" script="support/find_person.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -175,11 +175,11 @@
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
 		<vocation name="Elite Knight" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Food" words="exevo pan" level="14" mana="120" soul="1" cooldown="2000" aggressive="0" needlearn="0" script="support/food.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Great Light" words="utevo gran lux" level="13" mana="60" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="support/great_light.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -189,7 +189,7 @@
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
 		<vocation name="Elite Knight" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Haste" words="utani hur" level="14" mana="60" premium="1" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="support/haste.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -199,13 +199,13 @@
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
 		<vocation name="Elite Knight" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Invisibility" words="utana vid" level="35" mana="440" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="support/invisible.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Levitate" words="exani hur" level="12" mana="50" premium="1" aggressive="0" cooldown="2000" params="1" needlearn="0" script="support/levitate.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -215,7 +215,7 @@
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
 		<vocation name="Elite Knight" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Light" words="utevo lux" level="8" mana="20" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="support/light.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -225,7 +225,7 @@
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
 		<vocation name="Elite Knight" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Magic Rope" words="exani tera" level="9" mana="20" premium="1" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="support/magic_rope.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -235,13 +235,13 @@
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
 		<vocation name="Elite Knight" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Magic Shield" words="utamo vita" level="14" mana="50" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="support/magic_shield.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Protector" words="utamo tempo" level="55" mana="200" premium="1" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="support/protector.lua">
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
@@ -255,13 +255,13 @@
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Summon Creature" words="utevo res" level="25" params="1" cooldown="2000" needlearn="0" script="support/summon_creature.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Swift Foot" words="utamo tempo san" level="55" mana="400" premium="1" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="support/swift_foot.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
@@ -271,7 +271,7 @@
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 
 	
 	<instant group="support" name="Enchant Party" words="utori mas sio" level="32" mana="0" premium="1" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="party/enchant_party.lua">
@@ -281,7 +281,7 @@
 	<instant group="support" name="Heal Party" words="utura mas sio" level="32" mana="0" premium="1" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="party/heal_party.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Protect Party" words="utamo mas sio" level="32" mana="0" premium="1" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="party/protect_party.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
@@ -334,11 +334,11 @@
 	<rune group="support" name="Wild Growth Rune" id="2269" allowfaruse="1" charges="2" level="27" magiclevel="8" cooldown="2000" blocktype="all" script="support/wild_growth_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" showInDescription="0" />
-	</rune>
+	<vocation name="Summoner" /></rune>
 	<rune group="support" name="Paralyze Rune" id="2278" allowfaruse="1" charges="1" level="54" magiclevel="18" cooldown="2000" mana="1400" needtarget="1" blocktype="solid" script="support/paralyze_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" showInDescription="0" />
-	</rune>
+	<vocation name="Summoner" /></rune>
 
 	
 	<instant group="support" name="Animate Dead Rune" words="adana mort" level="27" mana="600" soul="5" premium="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/animate_dead_rune.lua">
@@ -346,7 +346,7 @@
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Arrow Call" words="exevo infir con" level="1" mana="10" soul="1" premium="0" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="conjuring/arrow_call.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
@@ -354,7 +354,7 @@
 	<instant group="support" name="Avalanche Rune" words="adori mas frigo" level="30" mana="530" soul="3" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/avalanche_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Blank Rune" words="adori blank" level="20" mana="50" soul="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/blank_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
@@ -362,11 +362,11 @@
 		<vocation name="Royal Paladin" />
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Chameleon Rune" words="adevo ina" level="27" mana="600" soul="2" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/chameleon_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Conjure Arrow" words="exevo con" level="13" mana="100" soul="1" premium="0" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="conjuring/conjure_arrow.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
@@ -397,11 +397,11 @@
 	<instant group="support" name="Convince Creature Rune" words="adeta sio" level="16" mana="200" soul="3" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/convince_creature_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Cure Poison Rune" words="adana pox" level="15" mana="200" soul="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/cure_poison_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Destroy Field Rune" words="adito grav" level="17" mana="120" soul="2" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/destroy_field_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -409,7 +409,7 @@
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Disintegrate Rune" words="adito tera" level="21" mana="200" soul="3" premium="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/disintegrate_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
@@ -417,7 +417,7 @@
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
 		<vocation name="Royal Paladin" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Enchant Spear" words="exeta con" level="45" mana="350" soul="3" premium="1" aggressive="0" selftarget="1" cooldown="2000" needlearn="0" script="conjuring/enchant_spear.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
@@ -434,37 +434,37 @@
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Energy Wall Rune" words="adevo mas grav vis" level="41" mana="1000" soul="5" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/energy_wall_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Explosion Rune" words="adevo mas hur" level="31" mana="570" soul="4" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/explosion_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Fire Field Rune" words="adevo grav flam" level="15" mana="240" soul="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/fire_field_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Fire Bomb Rune" words="adevo mas flam" level="27" mana="600" soul="4" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/fire_bomb_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Fire Wall Rune" words="adevo mas grav flam" level="33" mana="780" soul="4" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/fire_wall_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Fireball Rune" words="adori flam" level="27" mana="460" soul="3" premium="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/fireball_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
@@ -478,7 +478,7 @@
 		<vocation name="Master Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Holy Missile Rune" words="adori san" level="27" mana="300" soul="3" premium="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/holy_missile_rune.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
@@ -486,11 +486,11 @@
 	<instant group="support" name="Icicle Rune" words="adori frigo" level="28" mana="460" soul="3" premium="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/icicle_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Intense Healing Rune" words="adura gran" level="15" mana="120" soul="2" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/intense_healing_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Magic Wall Rune" words="adevo grav tera" level="32" mana="750" soul="5" premium="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/magic_wall_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
@@ -498,23 +498,23 @@
 	<instant group="support" name="Paralyze Rune" words="adana ani" level="54" mana="1400" soul="3" premium="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/paralyze_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Poison Bomb Rune" words="adevo mas pox" level="25" mana="520" soul="2" premium="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/poison_bomb_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Poison Field Rune" words="adevo grav pox" level="14" mana="200" soul="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/poison_field_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Poison Wall Rune" words="adevo mas grav pox" level="29" mana="640" soul="3" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/poison_wall_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Practice Magic Missile Rune" words="adori dis min vis" level="1" mana="5" soul="0" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/practice_magic_missile_rune.lua">
 		<vocation name="None" />
 	</instant>
@@ -523,17 +523,17 @@
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Stalagmite Rune" words="adori tera" level="24" mana="350" soul="2" premium="0" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/stalagmite_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	<vocation name="Wizard" /></instant>
+	<vocation name="Wizard" /><vocation name="Summoner" /></instant>
 	<instant group="support" name="Stone Shower Rune" words="adori mas tera" level="28" mana="430" soul="3" premium="1" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/stone_shower_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Sudden Death Rune" words="adori gran mort" level="45" mana="985" soul="5" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/sudden_death_rune.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
@@ -545,11 +545,11 @@
 	<instant group="support" name="Ultimate Healing Rune" words="adura vita" level="24" mana="400" soul="3" aggressive="0" cooldown="2000" needlearn="0" script="conjuring/ultimate_healing_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 	<instant group="support" name="Wild Growth Rune" words="adevo grav vita" level="27" mana="600" soul="5" premium="1" aggressive="0" needlearn="0" script="conjuring/wild_growth_rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
-	</instant>
+	<vocation name="Summoner" /></instant>
 
 	
 	<instant name="House Door List" words="aleta grav" casterTargetOrDirection="1" aggressive="0" script="house/edit_door.lua" />
@@ -559,4 +559,4 @@
 
 	
 	
-<instant name="Pentacle" words="exevo pentacle" lvl="80" maglv="50" mana="400" soul="0" exhaustion="2000" prem="1" enabled="1" script="attack/pentacle.lua"><vocation name="Wizard" /></instant></spells>
+<instant name="Pentacle" words="exevo pentacle" lvl="80" maglv="50" mana="400" soul="0" exhaustion="2000" prem="1" enabled="1" script="attack/pentacle.lua"><vocation name="Wizard" /></instant><instant name="Heal Summons" words="exura sio summon" lvl="35" maglv="20" mana="140" aggressive="0" prem="1" enabled="1" script="healing/heal_summons.lua"><vocation name="Summoner" /></instant><instant name="Heal Summons Plural" words="exura sio summons" lvl="35" maglv="20" mana="140" aggressive="0" prem="1" enabled="1" script="healing/heal_summons.lua"><vocation name="Summoner" /></instant></spells>

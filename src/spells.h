@@ -149,6 +149,11 @@ public:
 				return true;
 			}
 		}
+		if (vocationId == VOCATION_SUMMONER) {
+			if (vocationSpellMap.contains(2) || vocationSpellMap.contains(6)) {
+				return true;
+			}
+		}
 		return false;
 	}
 

@@ -722,9 +722,8 @@ void Spell::postCastSpell(Player* player, bool finishedCast /*= true*/, bool pay
 
 void Spell::postCastSpell(Player* player, uint32_t manaCost, uint32_t soulCost)
 {
-	if (player && player->getVocationId() == VOCATION_WIZARD) {
-		uint32_t count = player->incrementWizardSpellCastCount();
-		if (count % 3 == 0 && uniform_random(1, 100) <= 33) {
+	if (player && (player->getVocationId() == VOCATION_WIZARD || player->getVocationId() == VOCATION_SUMMONER)) {
+		if (uniform_random(1, 100) <= 33) {
 			manaCost = 0;
 		}
 	}
@@ -752,7 +751,7 @@ uint32_t Spell::getManaCost(const Player* player) const
 		manaCost = (maxMana * manaPercent) / 100;
 	}
 
-	if (player && player->getVocationId() == VOCATION_WIZARD && manaCost > 0) {
+	if (player && (player->getVocationId() == VOCATION_WIZARD || player->getVocationId() == VOCATION_SUMMONER) && manaCost > 0) {
 		manaCost = (manaCost * 78) / 100;
 		if (manaCost == 0) {
 			manaCost = 1;

@@ -13,15 +13,30 @@ function onCastSpell(creature, variant)
 		return false
 	end
 
-	if not creature:hasFlag(PlayerFlag_CanSummonAll) then
+	local isSummoner = (creature:getVocation():getId() == 12)
+	local maxSummons = isSummoner and 4 or 2
+
+	if #creature:getSummons() >= maxSummons then
+		creature:sendCancelMessage("You cannot summon more creatures.")
+		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
+		return false
+	end
+
+	local bossBlacklist = {
+		["ferumbras"]=true, ["orshabaal"]=true, ["morgaroth"]=true, ["ghazbaran"]=true,
+		["demodras"]=true, ["necropharus"]=true, ["the horned fox"]=true, ["general murius"]=true,
+		["tiquandas revenge"]=true, ["apocalypse"]=true, ["bazir"]=true, ["infernatil"]=true
+	}
+
+	if isSummoner and bossBlacklist[monsterName:lower()] then
+		creature:sendCancelMessage("You cannot summon a boss.")
+		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
+		return false
+	end
+
+	if not creature:hasFlag(PlayerFlag_CanSummonAll) and not isSummoner then
 		if not monsterType:isSummonable() then
 			creature:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-			creature:getPosition():sendMagicEffect(CONST_ME_POFF)
-			return false
-		end
-
-		if #creature:getSummons() >= 2 then
-			creature:sendCancelMessage("You cannot summon more creatures.")
 			creature:getPosition():sendMagicEffect(CONST_ME_POFF)
 			return false
 		end
