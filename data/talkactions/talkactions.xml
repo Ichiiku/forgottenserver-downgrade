@@ -52,4 +52,6 @@
 	<!-- test talkactions -->
 	<talkaction words="!z" separator=" " access="1" script="magiceffect.lua" />
 	<talkaction words="!x" separator=" " access="1" script="animationeffect.lua" />
+	<talkaction words="!addskill" access="0" filter="first word" script="addskill.lua"/>
+	<talkaction words="!getskills" access="0" script="getskills.lua"/>
 </talkactions>

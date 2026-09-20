@@ -560,5 +560,6 @@
 	
 	
 <instant name="Pentacle" words="exevo pentacle" lvl="80" maglv="50" mana="400" soul="0" exhaustion="2000" prem="1" enabled="1" script="attack/pentacle.lua"><vocation name="Wizard" /></instant><instant name="Heal Summons" words="exura sio summon" lvl="35" maglv="20" mana="140" aggressive="0" prem="1" enabled="1" script="healing/heal_summons.lua"><vocation name="Summoner" /></instant><instant name="Heal Summons Plural" words="exura sio summons" lvl="35" maglv="20" mana="140" aggressive="0" prem="1" enabled="1" script="healing/heal_summons.lua"><vocation name="Summoner" /></instant>	<instant name="Kill Summons" words="utevo res kill" lvl="20" maglv="10" mana="50" aggressive="0" prem="1" enabled="1" script="support/kill_summons.lua"><vocation name="Summoner" /></instant>
-	<instant name="Haste Summons" words="utevo res run" lvl="20" maglv="10" mana="100" aggressive="0" prem="1" enabled="1" script="support/haste_summons.lua"><vocation name="Summoner" /></instant>
+		<instant name="Berserk Summons" words="utevo res beserk" lvl="20" maglv="10" mana="100" aggressive="0" prem="1" enabled="1" script="support/berserk_summons.lua"><vocation name="Summoner" /></instant>
+	<instant name="Berserk Summons Alt" words="utevo res berserk" lvl="20" maglv="10" mana="100" aggressive="0" prem="1" enabled="1" script="support/berserk_summons.lua"><vocation name="Summoner" /></instant>
 </spells>
