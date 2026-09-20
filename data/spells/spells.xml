@@ -562,4 +562,20 @@
 <instant name="Pentacle" words="exevo pentacle" lvl="80" maglv="50" mana="400" soul="0" exhaustion="2000" prem="1" enabled="1" script="attack/pentacle.lua"><vocation name="Wizard" /></instant><instant name="Heal Summons" words="exura sio summon" lvl="35" maglv="20" mana="140" aggressive="0" prem="1" enabled="1" script="healing/heal_summons.lua"><vocation name="Summoner" /></instant><instant name="Heal Summons Plural" words="exura sio summons" lvl="35" maglv="20" mana="140" aggressive="0" prem="1" enabled="1" script="healing/heal_summons.lua"><vocation name="Summoner" /></instant>	<instant name="Kill Summons" words="utevo res kill" lvl="20" maglv="10" mana="50" aggressive="0" prem="1" enabled="1" script="support/kill_summons.lua"><vocation name="Summoner" /></instant>
 		<instant name="Berserk Summons" words="utevo res beserk" lvl="20" maglv="10" mana="100" aggressive="0" prem="1" enabled="1" script="support/berserk_summons.lua"><vocation name="Summoner" /></instant>
 	<instant name="Berserk Summons Alt" words="utevo res berserk" lvl="20" maglv="10" mana="100" aggressive="0" prem="1" enabled="1" script="support/berserk_summons.lua"><vocation name="Summoner" /></instant>
+	<instant name="Vis Strike" words="vis strike" lvl="25" mana="60" prem="0" range="5" needtarget="1" blockwalls="1" exhaustion="1000" script="attack/vis_strike.lua">
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" />
+		<vocation name="Wizard" />
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" />
+		<vocation name="Summoner" />
+	</instant>
+	<instant name="Exori Vis Strike" words="exori vis strike" lvl="25" mana="60" prem="0" range="5" needtarget="1" blockwalls="1" exhaustion="1000" script="attack/vis_strike.lua">
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" />
+		<vocation name="Wizard" />
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" />
+		<vocation name="Summoner" />
+	</instant>
 </spells>
