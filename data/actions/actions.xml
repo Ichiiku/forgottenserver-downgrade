@@ -141,4 +141,6 @@
 	<action itemid="7828" script="other/watch.lua" />
 	<action fromid="7904" toid="7907" script="other/bed_modification_kits.lua" />
 	<action fromid="9443" toid="9444" script="other/watch.lua" />
+	<action itemid="2148" script="other/coins.lua"/>
+	<action itemid="2152" script="other/coins.lua"/>
 </actions>

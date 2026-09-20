@@ -21801,335 +21801,513 @@
 		<attribute key="weight" value="2500" />
 	</item>
 
-	<!-- Custom Fansite Items (IDs 5090 to 5169) -->
+
+
+	<!-- Custom Fansite Items (IDs 5090 to 5167, 78 items) -->
 	<item id="5090" name="Abacus">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Abacus awarded to legends."/>
+		<attribute key="description" value="An exquisite Abacus awarded to fansite legends."/>
 	</item>
 	<item id="5091" name="Adamant Shield">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weaponType" value="shield"/>
 		<attribute key="defense" value="38"/>
 		<attribute key="weight" value="4500"/>
+		<attribute key="description" value="An impenetrable Adamant Shield."/>
 	</item>
 	<item id="5092" name="Armillary Sphere">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Armillary Sphere awarded to legends."/>
+		<attribute key="description" value="An exquisite Armillary Sphere awarded to fansite legends."/>
 	</item>
 	<item id="5093" name="Assassin Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Assassin Doll awarded to legends."/>
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Assassin Doll awarded to fansite legends."/>
 	</item>
-	<item id="5094" name="Auroras Collection">
+	<item id="5094" name="Aurora's Collection">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Auroras Collection awarded to legends."/>
+		<attribute key="description" value="An exquisite Aurora's Collection awarded to fansite legends."/>
 	</item>
 	<item id="5095" name="Aylie">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Aylie awarded to legends."/>
+		<attribute key="description" value="An exquisite Aylie awarded to fansite legends."/>
 	</item>
 	<item id="5096" name="Baby Munster">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Baby Munster awarded to legends."/>
+		<attribute key="description" value="An exquisite Baby Munster awarded to fansite legends."/>
 	</item>
-	<item id="5097" name="Bag Of Oriental Spices">
-		<attribute key="type" value="container"/>
-		<attribute key="containerSize" value="22"/>
-		<attribute key="slotType" value="backpack"/>
-		<attribute key="weight" value="1800"/>
+	<item id="5097" name="Bag of Oriental Spices">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="850"/>
+		<attribute key="description" value="An exquisite Bag of Oriental Spices awarded to fansite legends."/>
 	</item>
 	<item id="5098" name="Banor Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Banor Doll awarded to legends."/>
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Banor Doll awarded to fansite legends."/>
 	</item>
 	<item id="5099" name="Bard Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Bard Doll awarded to legends."/>
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Bard Doll awarded to fansite legends."/>
 	</item>
-	<item id="5100" name="Bella Bonecrusher Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Bella Bonecrusher Doll awarded to legends."/>
+	<item id="5100" name="Bella Bonecrusher's Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Bella Bonecrusher's Doll awarded to fansite legends."/>
 	</item>
-	<item id="5101" name="Beaver Of Wisdom">
+	<item id="5101" name="Beaver of Wisdom">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Beaver Of Wisdom awarded to legends."/>
+		<attribute key="description" value="An exquisite Beaver of Wisdom awarded to fansite legends."/>
 	</item>
 	<item id="5102" name="Black Knight Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Black Knight Doll awarded to legends."/>
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Black Knight Doll awarded to fansite legends."/>
 	</item>
 	<item id="5103" name="Bonelord Tome">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Bonelord Tome awarded to legends."/>
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="950"/>
+		<attribute key="description" value="An exquisite Bonelord Tome awarded to fansite legends."/>
 	</item>
 	<item id="5104" name="Bookworm Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Bookworm Doll awarded to legends."/>
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Bookworm Doll awarded to fansite legends."/>
 	</item>
-	<item id="5105" name="Cateroides Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Cateroides Doll awarded to legends."/>
+	<item id="5105" name="Cateroide's Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Cateroide's Doll awarded to fansite legends."/>
 	</item>
 	<item id="5106" name="Chaos Critical Dice">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Chaos Critical Dice awarded to legends."/>
+		<attribute key="description" value="An exquisite Chaos Critical Dice awarded to fansite legends."/>
 	</item>
-	<item id="5107" name="Citizen Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Citizen Doll awarded to legends."/>
+	<item id="5107" name="Citizen's Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Citizen's Doll awarded to fansite legends."/>
 	</item>
-	<item id="5108" name="Crunors Heart">
+	<item id="5108" name="Crunor's Heart">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Crunors Heart awarded to legends."/>
+		<attribute key="description" value="An exquisite Crunor's Heart awarded to fansite legends."/>
 	</item>
 	<item id="5109" name="Dark Oracle">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Dark Oracle awarded to legends."/>
+		<attribute key="description" value="An exquisite Dark Oracle awarded to fansite legends."/>
 	</item>
-	<item id="5110" name="Dark Wizards Crown">
+	<item id="5110" name="Dark Wizard's Crown">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="slotType" value="head"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="weight" value="2500"/>
+		<attribute key="description" value="An enchanted Dark Wizard's Crown with ancient aura."/>
 	</item>
-	<item id="5111" name="Doll Of Durin The Almighty">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Doll Of Durin The Almighty awarded to legends."/>
+	<item id="5111" name="Doll of Durin The Almighty">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Doll of Durin The Almighty awarded to fansite legends."/>
 	</item>
 	<item id="5112" name="Dragon Eye">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Dragon Eye awarded to legends."/>
+		<attribute key="description" value="An exquisite Dragon Eye awarded to fansite legends."/>
 	</item>
 	<item id="5113" name="Dragon Goblet">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Dragon Goblet awarded to legends."/>
+		<attribute key="description" value="An exquisite Dragon Goblet awarded to fansite legends."/>
 	</item>
 	<item id="5114" name="Draken Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Draken Doll awarded to legends."/>
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Draken Doll awarded to fansite legends."/>
 	</item>
 	<item id="5115" name="Draptor Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Draptor Doll awarded to legends."/>
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Draptor Doll awarded to fansite legends."/>
 	</item>
 	<item id="5116" name="Dread Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Dread Doll awarded to legends."/>
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Dread Doll awarded to fansite legends."/>
 	</item>
 	<item id="5117" name="Duality Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Duality Doll awarded to legends."/>
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Duality Doll awarded to fansite legends."/>
 	</item>
-	<item id="5118" name="Epaminonds Doll Mead Horn">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Epaminonds Doll Mead Horn awarded to legends."/>
+	<item id="5118" name="Epaminondas Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Epaminondas Doll awarded to fansite legends."/>
 	</item>
-	<item id="5119" name="Epaminondas Doll">
+	<item id="5119" name="Evora">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Epaminondas Doll awarded to legends."/>
+		<attribute key="description" value="An exquisite Evora awarded to fansite legends."/>
 	</item>
-	<item id="5120" name="Evora">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Evora awarded to legends."/>
+	<item id="5120" name="Ferumbras Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Ferumbras Doll awarded to fansite legends."/>
 	</item>
-	<item id="5121" name="Ferumbras Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Ferumbras Doll awarded to legends."/>
-	</item>
-	<item id="5122" name="Friendship Amulet">
+	<item id="5121" name="Friendship Amulet">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="weight" value="420"/>
+		<attribute key="description" value="A blessed Friendship Amulet."/>
 	</item>
-	<item id="5123" name="Frozen Heart">
+	<item id="5122" name="Frozen Heart">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Frozen Heart awarded to legends."/>
+		<attribute key="description" value="An exquisite Frozen Heart awarded to fansite legends."/>
 	</item>
-	<item id="5124" name="Golden Falcon">
+	<item id="5123" name="Golden Falcon">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Golden Falcon awarded to legends."/>
+		<attribute key="description" value="An exquisite Golden Falcon awarded to fansite legends."/>
 	</item>
-	<item id="5125" name="Golden Newspaper">
+	<item id="5124" name="Golden Newspaper">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Golden Newspaper awarded to legends."/>
+		<attribute key="description" value="An exquisite Golden Newspaper awarded to fansite legends."/>
 	</item>
-	<item id="5126" name="Goromaphone">
+	<item id="5125" name="Goromaphone">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Goromaphone awarded to legends."/>
+		<attribute key="description" value="An exquisite Goromaphone awarded to fansite legends."/>
 	</item>
-	<item id="5127" name="Hand Puppets">
+	<item id="5126" name="Hand Puppets">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Hand Puppets awarded to legends."/>
+		<attribute key="description" value="An exquisite Hand Puppets awarded to fansite legends."/>
 	</item>
-	<item id="5128" name="Heavily Bound Book">
+	<item id="5127" name="Heavily Bound Book">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="950"/>
+		<attribute key="description" value="An exquisite Heavily Bound Book awarded to fansite legends."/>
+	</item>
+	<item id="5128" name="Imortus">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Heavily Bound Book awarded to legends."/>
+		<attribute key="description" value="An exquisite Imortus awarded to fansite legends."/>
 	</item>
-	<item id="5129" name="Imortus">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Imortus awarded to legends."/>
-	</item>
-	<item id="5130" name="Jade Amulet">
+	<item id="5129" name="Jade Amulet">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="weight" value="420"/>
+		<attribute key="description" value="A blessed Jade Amulet."/>
 	</item>
-	<item id="5131" name="Journal Shield">
-		<attribute key="defense" value="38"/>
-		<attribute key="weight" value="4500"/>
+	<item id="5130" name="Journal Shield">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weaponType" value="shield"/>
+		<attribute key="defense" value="36"/>
+		<attribute key="weight" value="4200"/>
+		<attribute key="description" value="An impenetrable Journal Shield."/>
 	</item>
-	<item id="5132" name="Key Of Numerous Locks">
+	<item id="5131" name="Key of Numerous Locks">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Key Of Numerous Locks awarded to legends."/>
+		<attribute key="description" value="An exquisite Key of Numerous Locks awarded to fansite legends."/>
 	</item>
-	<item id="5133" name="Little Adventurer Doll">
+	<item id="5132" name="Little Adventurer Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Little Adventurer Doll awarded to fansite legends."/>
+	</item>
+	<item id="5133" name="Loremaster Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Loremaster Doll awarded to fansite legends."/>
+	</item>
+	<item id="5134" name="Love Elixir">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Little Adventurer Doll awarded to legends."/>
+		<attribute key="description" value="An exquisite Love Elixir awarded to fansite legends."/>
 	</item>
-	<item id="5134" name="Loremaster Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Loremaster Doll awarded to legends."/>
-	</item>
-	<item id="5135" name="Love Elixir">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Love Elixir awarded to legends."/>
-	</item>
-	<item id="5136" name="Lucky Clover Amulet">
+	<item id="5135" name="Lucky Clover Amulet">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="weight" value="420"/>
+		<attribute key="description" value="A blessed Lucky Clover Amulet."/>
 	</item>
-	<item id="5137" name="Luna">
+	<item id="5136" name="Luna">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Luna awarded to legends."/>
+		<attribute key="description" value="An exquisite Luna awarded to fansite legends."/>
 	</item>
-	<item id="5138" name="Magic Hat">
+	<item id="5137" name="Magic Hat">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="slotType" value="head"/>
-		<attribute key="armor" value="10"/>
-		<attribute key="weight" value="2500"/>
+		<attribute key="armor" value="8"/>
+		<attribute key="weight" value="1500"/>
+		<attribute key="description" value="An enchanted Magic Hat with ancient aura."/>
 	</item>
-	<item id="5139" name="Majestic Shield">
+	<item id="5138" name="Majestic Shield">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weaponType" value="shield"/>
 		<attribute key="defense" value="38"/>
-		<attribute key="weight" value="4500"/>
+		<attribute key="weight" value="4800"/>
+		<attribute key="description" value="An impenetrable Majestic Shield."/>
 	</item>
-	<item id="5140" name="Mathmaster Shield">
+	<item id="5139" name="Mathmaster Shield">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weaponType" value="shield"/>
 		<attribute key="defense" value="38"/>
-		<attribute key="weight" value="4500"/>
+		<attribute key="weight" value="4600"/>
+		<attribute key="description" value="An impenetrable Mathmaster Shield."/>
 	</item>
-	<item id="5141" name="Medusa Skull">
+	<item id="5140" name="Medusa Skull">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Medusa Skull awarded to legends."/>
+		<attribute key="description" value="An exquisite Medusa Skull awarded to fansite legends."/>
 	</item>
-	<item id="5142" name="Memory Box">
+	<item id="5141" name="Memory Box">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="containerSize" value="12"/>
+		<attribute key="weight" value="1200"/>
+		<attribute key="description" value="A precious Memory Box (Vol:12)."/>
+	</item>
+	<item id="5142" name="Midnight Panther Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Midnight Panther Doll awarded to fansite legends."/>
+	</item>
+	<item id="5143" name="Mini NabBot">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Memory Box awarded to legends."/>
+		<attribute key="description" value="An exquisite Mini NabBot awarded to fansite legends."/>
 	</item>
-	<item id="5143" name="Memory Box Old">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Memory Box Old awarded to legends."/>
+	<item id="5144" name="Music Box">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="containerSize" value="12"/>
+		<attribute key="weight" value="1200"/>
+		<attribute key="description" value="A precious Music Box (Vol:12)."/>
 	</item>
-	<item id="5144" name="Midnight Panther Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Midnight Panther Doll awarded to legends."/>
+	<item id="5145" name="Nightmare Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Nightmare Doll awarded to fansite legends."/>
 	</item>
-	<item id="5145" name="Mini Nabbot">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Mini Nabbot awarded to legends."/>
-	</item>
-	<item id="5146" name="Music Box">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Music Box awarded to legends."/>
-	</item>
-	<item id="5147" name="Nightmare Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Nightmare Doll awarded to legends."/>
-	</item>
-	<item id="5148" name="Noble Sword">
+	<item id="5146" name="Noble Sword">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weaponType" value="sword"/>
+		<attribute key="slotType" value="two-handed"/>
 		<attribute key="attack" value="52"/>
 		<attribute key="defense" value="35"/>
 		<attribute key="weight" value="4800"/>
+		<attribute key="description" value="A legendary Noble Sword forged by ancient masters."/>
 	</item>
-	<item id="5149" name="Norseman Doll">
+	<item id="5147" name="Norseman Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Norseman Doll awarded to fansite legends."/>
+	</item>
+	<item id="5148" name="Old Radio">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Norseman Doll awarded to legends."/>
+		<attribute key="description" value="An exquisite Old Radio awarded to fansite legends."/>
 	</item>
-	<item id="5150" name="Old Radio">
+	<item id="5149" name="Omniscient Owl">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Old Radio awarded to legends."/>
+		<attribute key="description" value="An exquisite Omniscient Owl awarded to fansite legends."/>
 	</item>
-	<item id="5151" name="Omniscient Owl">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Omniscient Owl awarded to legends."/>
-	</item>
-	<item id="5152" name="Orcs Jaw Shredder">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Orcs Jaw Shredder awarded to legends."/>
-	</item>
-	<item id="5153" name="Phoenix Statue">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Phoenix Statue awarded to legends."/>
-	</item>
-	<item id="5154" name="Pigeon Trophy">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Pigeon Trophy awarded to legends."/>
-	</item>
-	<item id="5155" name="Scroll Of The Stolen Moment">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Scroll Of The Stolen Moment awarded to legends."/>
-	</item>
-	<item id="5156" name="Shield Of Destiny">
-		<attribute key="defense" value="38"/>
-		<attribute key="weight" value="4500"/>
-	</item>
-	<item id="5157" name="Shield Of Endless Search">
-		<attribute key="defense" value="38"/>
-		<attribute key="weight" value="4500"/>
-	</item>
-	<item id="5158" name="The Dragon Spirit">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite The Dragon Spirit awarded to legends."/>
-	</item>
-	<item id="5159" name="The Epic Wisdom">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite The Epic Wisdom awarded to legends."/>
-	</item>
-	<item id="5160" name="The Gods Twilight Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite The Gods Twilight Doll awarded to legends."/>
-	</item>
-	<item id="5161" name="The Mexcalibur">
-		<attribute key="weaponType" value="sword"/>
+	<item id="5150" name="Orc's Jaw Shredder">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weaponType" value="axe"/>
+		<attribute key="slotType" value="two-handed"/>
 		<attribute key="attack" value="52"/>
-		<attribute key="defense" value="35"/>
-		<attribute key="weight" value="4800"/>
+		<attribute key="defense" value="32"/>
+		<attribute key="weight" value="5200"/>
+		<attribute key="description" value="A brutal Orc's Jaw Shredder."/>
 	</item>
-	<item id="5162" name="Tibiacity Encyclopedia">
+	<item id="5151" name="Phoenix Statue">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="1500"/>
+		<attribute key="description" value="An exquisite Phoenix Statue awarded to fansite legends."/>
+	</item>
+	<item id="5152" name="Pigeon Trophy">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="1500"/>
+		<attribute key="description" value="An exquisite Pigeon Trophy awarded to fansite legends."/>
+	</item>
+	<item id="5153" name="Scroll of the Stolen Moment">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Tibiacity Encyclopedia awarded to legends."/>
+		<attribute key="description" value="An exquisite Scroll of the Stolen Moment awarded to fansite legends."/>
 	</item>
-	<item id="5163" name="Tibiahispano Emblem">
+	<item id="5154" name="Shield of Destiny">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weaponType" value="shield"/>
+		<attribute key="defense" value="39"/>
+		<attribute key="weight" value="4900"/>
+		<attribute key="description" value="An impenetrable Shield of Destiny."/>
+	</item>
+	<item id="5155" name="Shield of Endless Search">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weaponType" value="shield"/>
+		<attribute key="defense" value="37"/>
+		<attribute key="weight" value="4200"/>
+		<attribute key="description" value="An impenetrable Shield of Endless Search."/>
+	</item>
+	<item id="5156" name="The Dragon Spirit">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Tibiahispano Emblem awarded to legends."/>
+		<attribute key="description" value="An exquisite The Dragon Spirit awarded to fansite legends."/>
 	</item>
-	<item id="5164" name="Tibiapedia">
+	<item id="5157" name="The Epic Wisdom">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Tibiapedia awarded to legends."/>
+		<attribute key="description" value="An exquisite The Epic Wisdom awarded to fansite legends."/>
 	</item>
-	<item id="5165" name="Tibioras Box">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Tibioras Box awarded to legends."/>
+	<item id="5158" name="The God's Twilight Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite The God's Twilight Doll awarded to fansite legends."/>
 	</item>
-	<item id="5166" name="War Backpack">
-		<attribute key="type" value="container"/>
-		<attribute key="containerSize" value="22"/>
+	<item id="5159" name="The Mexcalibur">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weaponType" value="sword"/>
+		<attribute key="slotType" value="two-handed"/>
+		<attribute key="attack" value="55"/>
+		<attribute key="defense" value="38"/>
+		<attribute key="weight" value="5000"/>
+		<attribute key="description" value="A legendary The Mexcalibur forged by ancient masters."/>
+	</item>
+	<item id="5160" name="Tibiacity Encyclopedia">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="950"/>
+		<attribute key="description" value="An exquisite Tibiacity Encyclopedia awarded to fansite legends."/>
+	</item>
+	<item id="5161" name="TibiaHispano Emblem">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weaponType" value="shield"/>
+		<attribute key="defense" value="36"/>
+		<attribute key="weight" value="3500"/>
+		<attribute key="description" value="An impenetrable TibiaHispano Emblem."/>
+	</item>
+	<item id="5162" name="Tibiapedia">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="950"/>
+		<attribute key="description" value="An exquisite Tibiapedia awarded to fansite legends."/>
+	</item>
+	<item id="5163" name="Tibiora's Box">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="containerSize" value="14"/>
+		<attribute key="weight" value="1200"/>
+		<attribute key="description" value="A precious Tibiora's Box (Vol:14)."/>
+	</item>
+	<item id="5164" name="War Backpack">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="slotType" value="backpack"/>
+		<attribute key="containerSize" value="22"/>
 		<attribute key="weight" value="1800"/>
+		<attribute key="description" value="A heavy-duty War Backpack (Vol:22)."/>
 	</item>
-	<item id="5167" name="White Lion Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite White Lion Doll awarded to legends."/>
+	<item id="5165" name="White Lion Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite White Lion Doll awarded to fansite legends."/>
 	</item>
-	<item id="5168" name="Wicked Witch">
+	<item id="5166" name="Wicked Witch">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
 		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Wicked Witch awarded to legends."/>
+		<attribute key="description" value="An exquisite Wicked Witch awarded to fansite legends."/>
 	</item>
-	<item id="5169" name="Yeti Doll">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="An exquisite Yeti Doll awarded to legends."/>
+	<item id="5167" name="Yeti Doll">
+		<attribute key="pickupable" value="1"/>
+		<attribute key="moveable" value="1"/>
+		<attribute key="weight" value="450"/>
+		<attribute key="description" value="An exquisite Yeti Doll awarded to fansite legends."/>
 	</item>
 </items>
