@@ -4904,6 +4904,8 @@
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="2817" article="a" name="dead snake">
+		<attribute key="type" value="container" />
+		<attribute key="containerSize" value="5" />
 		<attribute key="weight" value="1200" />
 		<attribute key="decayTo" value="2818" />
 		<attribute key="duration" value="600" />
@@ -9757,6 +9759,7 @@
 		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="5984" article="a" name="dead dragon">
+		<attribute key="type" value="container" />
 		<attribute key="containerSize" value="52" />
 		<attribute key="decayTo" value="2881" />
 		<attribute key="duration" value="10" />

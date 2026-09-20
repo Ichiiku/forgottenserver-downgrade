@@ -78,7 +78,17 @@ CREATE TABLE IF NOT EXISTS `players` (
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
 
 INSERT INTO `players` (`id`, `name`, `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `currentmount`, `randomizemount`, `direction`, `maglevel`, `mana`, `manamax`, `manaspent`, `soul`, `town_id`, `posx`, `posy`, `posz`, `conditions`, `cap`, `sex`, `lastlogin`, `lastip`, `save`, `skull`, `skulltime`, `lastlogout`, `blessings`, `onlinetime`, `deletion`, `balance`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`) VALUES
-(1, 'Account Manager', 1, 1, 1, 0, 150, 150, 0, 0, 0, 0, 0, 110, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 2500, 2500, 7, '', 400, 1, 1703277227, 16777343, 1, 0, 0, 1710912621, 0, 7641057, 0, 0, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0);
+(1, 'Account Manager', 1, 1, 1, 0, 150, 150, 0, 0, 0, 0, 0, 110, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 2500, 2500, 7, '', 400, 1, 1703277227, 16777343, 1, 0, 0, 1710912621, 0, 7641057, 0, 0, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0),
+(2, 'Rat', 1, 1, 222, 10, 4570, 4570, 179916200, 114, 114, 114, 114, 129, 0, 0, 0, 2, 22, 6630, 6630, 0, 400, 1, 160, 54, 7, '', 9240, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 100, 0, 100, 0, 10, 0);
+
+INSERT INTO `player_items` (`player_id`, `pid`, `sid`, `itemtype`, `count`, `attributes`) VALUES
+(2, 1, 101, 2493, 1, ''),
+(2, 3, 102, 1988, 1, ''),
+(2, 4, 103, 2494, 1, ''),
+(2, 6, 104, 5803, 1, ''),
+(2, 7, 105, 2495, 1, ''),
+(2, 8, 106, 2195, 1, ''),
+(2, 10, 107, 2547, 100, '');
 
 CREATE TABLE IF NOT EXISTS `account_bans` (
   `account_id` int NOT NULL,

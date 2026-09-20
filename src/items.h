@@ -281,7 +281,7 @@ public:
 	ItemType(ItemType&& other) = default;
 	ItemType& operator=(ItemType&& other) = default;
 
-	bool isGroundTile() const { return group == ITEM_GROUP_GROUND; }
+	bool isGroundTile() const { return group == ITEM_GROUP_GROUND || (speed > 0 && (group == ITEM_GROUP_SPLASH || group == ITEM_GROUP_FLUID)); }
 	bool isContainer() const { return group == ITEM_GROUP_CONTAINER; }
 	bool isSplash() const { return group == ITEM_GROUP_SPLASH; }
 	bool isFluidContainer() const { return group == ITEM_GROUP_FLUID; }

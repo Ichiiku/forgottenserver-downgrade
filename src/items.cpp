@@ -617,14 +617,14 @@ bool Items::loadFromXml()
 
 void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 {
-	if (id > 0 && id < 100) {
-		ItemType& iType = items[id];
-		iType.id = id;
+	if (id >= items.size()) {
+		items.resize(id + 1);
 	}
-
-	ItemType& it = getItemType(id);
+	ItemType& it = items[id];
 	if (it.id == 0) {
-		return;
+		it.id = id;
+		it.clientId = id;
+		clientIdToServerIdMap.emplace(id, id);
 	}
 
 	if (!it.name.empty()) {
@@ -799,6 +799,10 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 
 				case ITEM_PARSE_CONTAINERSIZE: {
 					it.maxItems = pugi::cast<uint16_t>(valueAttribute.value());
+					if (it.maxItems > 0) {
+						it.type = ITEM_TYPE_CONTAINER;
+						it.group = ITEM_GROUP_CONTAINER;
+					}
 					break;
 				}
 

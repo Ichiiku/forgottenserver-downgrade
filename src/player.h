@@ -271,6 +271,10 @@ public:
 	bool setVocation(uint16_t vocId);
 	uint16_t getVocationId() const { return vocation->getId(); }
 
+	uint32_t sniperShotCount = 0;
+	uint32_t getSniperShotCount() const { return sniperShotCount; }
+	uint32_t incrementSniperShotCount() { return ++sniperShotCount; }
+
 	PlayerSex_t getSex() const { return sex; }
 	void setSex(PlayerSex_t);
 	uint64_t getExperience() const { return experience; }

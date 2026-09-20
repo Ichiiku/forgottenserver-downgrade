@@ -9,6 +9,7 @@
 #include "configmanager.h"
 #include "game.h"
 #include "luavariant.h"
+#include "monster.h"
 #include "pugicast.h"
 
 extern Game g_game;
@@ -405,14 +406,18 @@ void Weapon::onUsedWeapon(Player* player, Item* item, Tile* destTile) const
 	}
 
 	if (breakChance != 0 && uniform_random(1, 100) <= breakChance) {
-		Weapon::decrementItemCount(item);
-		return;
+		if (player->getVocationId() != VOCATION_SNIPER) {
+			Weapon::decrementItemCount(item);
+			return;
+		}
 	}
 
 	switch (action) {
 		case WEAPONACTION_REMOVECOUNT:
 			if (getBoolean(ConfigManager::REMOVE_WEAPON_AMMO)) {
-				Weapon::decrementItemCount(item);
+				if (player->getVocationId() != VOCATION_SNIPER) {
+					Weapon::decrementItemCount(item);
+				}
 			}
 			break;
 
@@ -737,6 +742,66 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 
 	if (chance >= uniform_random(1, 100)) {
 		Weapon::internalUseWeapon(player, item, target, damageModifier);
+
+		if (player->getVocationId() == VOCATION_SNIPER) {
+			uint32_t shotCount = player->incrementSniperShotCount();
+			if (shotCount % 3 == 0) {
+				const Position& targetPos = target->getPosition();
+				SpectatorVec spectators;
+				g_game.map.getSpectators(spectators, targetPos, false, false, 5, 5, 5, 5);
+
+				std::vector<Creature*> ricochetTargets;
+				for (Creature* spectator : spectators) {
+					if (spectator != target && spectator != player && spectator->getMonster() && !spectator->getMonster()->isSummon()) {
+						ricochetTargets.push_back(spectator);
+						if (ricochetTargets.size() >= 2) {
+							break;
+						}
+					}
+				}
+
+				uint8_t shootEffect = it.shootType;
+				if (shootEffect == CONST_ANI_NONE && item->getWeaponType() == WEAPON_AMMO) {
+					Item* bow = player->getWeapon(true);
+					if (bow) {
+						shootEffect = Item::items[bow->getID()].shootType;
+					}
+				}
+
+				// Ricochet primary bolt to up to 2 other mobs
+				for (Creature* secTarget : ricochetTargets) {
+					g_game.addDistanceEffect(targetPos, secTarget->getPosition(), shootEffect);
+					CombatDamage ricochetDamage;
+					ricochetDamage.origin = ORIGIN_RANGED;
+					ricochetDamage.primary.type = params.combatType;
+					ricochetDamage.primary.value = (getWeaponDamage(player, secTarget, item) * damageModifier) / 100;
+					ricochetDamage.secondary.type = getElementType();
+					ricochetDamage.secondary.value = getElementDamage(player, secTarget, item);
+					Combat::doTargetCombat(player, secTarget, ricochetDamage, params);
+				}
+
+				// Second bolt at main target AND ricochet to up to 2 other mobs
+				g_game.addDistanceEffect(player->getPosition(), targetPos, shootEffect);
+				CombatDamage secBoltDamage;
+				secBoltDamage.origin = ORIGIN_RANGED;
+				secBoltDamage.primary.type = params.combatType;
+				secBoltDamage.primary.value = (getWeaponDamage(player, target, item) * damageModifier) / 100;
+				secBoltDamage.secondary.type = getElementType();
+				secBoltDamage.secondary.value = getElementDamage(player, target, item);
+				Combat::doTargetCombat(player, target, secBoltDamage, params);
+
+				for (Creature* secTarget : ricochetTargets) {
+					g_game.addDistanceEffect(targetPos, secTarget->getPosition(), shootEffect);
+					CombatDamage secRicochetDamage;
+					secRicochetDamage.origin = ORIGIN_RANGED;
+					secRicochetDamage.primary.type = params.combatType;
+					secRicochetDamage.primary.value = (getWeaponDamage(player, secTarget, item) * damageModifier) / 100;
+					secRicochetDamage.secondary.type = getElementType();
+					secRicochetDamage.secondary.value = getElementDamage(player, secTarget, item);
+					Combat::doTargetCombat(player, secTarget, secRicochetDamage, params);
+				}
+			}
+		}
 	} else {
 		// miss target
 		Tile* destTile = target->getTile();

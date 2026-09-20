@@ -9,6 +9,7 @@
 #include "events.h"
 #include "game.h"
 #include "monster.h"
+#include "player.h"
 #include "scheduler.h"
 
 extern CreatureEvents* g_creatureEvents;
@@ -830,6 +831,14 @@ BlockType_t Creature::blockHit(Creature* attacker, CombatType_t combatType, int3
                                bool /* ignoreResistances = false */)
 {
 	BlockType_t blockType = BLOCK_NONE;
+
+	if (attacker) {
+		Player* attackerPlayer = attacker->getPlayer();
+		if (attackerPlayer && attackerPlayer->getVocationId() == VOCATION_DARK_KNIGHT) {
+			checkDefense = false;
+			blockCount = 0;
+		}
+	}
 
 	if (isImmune(combatType)) {
 		damage = 0;
